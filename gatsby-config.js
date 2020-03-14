@@ -7,7 +7,7 @@
 module.exports = {
   /* Your site config here */
   plugins: [
-    ['gatsby-plugin-flow'],
+    'gatsby-plugin-flow',
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
