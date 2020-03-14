@@ -1,0 +1,14 @@
+.HeroHeader {
+  margin: 3.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+}
+
+.HeroHeader a {
+  padding: 0 0.4rem;
+}
+.HeroHeader a * {
+  font-size: 1.25rem !important;
+}
