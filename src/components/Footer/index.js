@@ -1,9 +1,23 @@
 // @flow
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import { rhythm } from '../../utils/typography'
 
 export default () => {
+  const data = useStaticQuery(graphql`
+    query FooterQuery {
+      site {
+        siteMetadata {
+          extraLinks {
+            github
+            gatsby
+          }
+        }
+      }
+    }
+  `)
+  const { github, gatsby } = data.site.siteMetadata.extraLinks
   const currYear = new Date().getFullYear()
   return (
     <div
@@ -18,11 +32,11 @@ export default () => {
       `}
     >
       &copy;{` 2020 ~ ${currYear} `}
-      <a href="#" target="__blank">
+      <a href={github} target="__blank">
         jiarong
       </a>
       {` | powered `}{' '}
-      <a href="https://www.gatsbyjs.org/" target="__blank">
+      <a href={gatsby} target="__blank">
         Gatsby
       </a>
     </div>

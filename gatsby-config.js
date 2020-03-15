@@ -14,6 +14,10 @@ module.exports = {
       { url: '/about/', icon: 'person', title: 'About' },
       { url: '/gallery/', icon: 'photo_library', title: 'Gallery' },
     ],
+    extraLinks: {
+      github: 'https://github.com/Alienover',
+      gatsby: 'https://www.gatsbyjs.org/',
+    },
   },
   plugins: [
     'gatsby-plugin-flow',
