@@ -11,13 +11,12 @@ export default () => {
         siteMetadata {
           extraLinks {
             github
-            gatsby
           }
         }
       }
     }
   `)
-  const { github, gatsby } = data.site.siteMetadata.extraLinks
+  const { github } = data.site.siteMetadata.extraLinks
   const currYear = new Date().getFullYear()
   return (
     <div
@@ -31,13 +30,9 @@ export default () => {
         }
       `}
     >
-      &copy;{` 2020 ~ ${currYear} `}
+      &copy;{`${currYear} `}
       <a href={github} target="__blank">
         jiarong
-      </a>
-      {` | powered `}{' '}
-      <a href={gatsby} target="__blank">
-        Gatsby
       </a>
     </div>
   )

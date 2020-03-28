@@ -7,7 +7,8 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: 'Hello World',
+    title: 'Blog://👨‍💻.Placeholder',
+    shortTitle: 'A blog by Jiarong',
     menus: [
       { url: '', icon: 'list', title: 'Archive' },
       { url: '/tags/', icon: 'tag', title: 'Tags' },
@@ -16,13 +17,12 @@ module.exports = {
     ],
     extraLinks: {
       github: 'https://github.com/Alienover',
-      gatsby: 'https://www.gatsbyjs.org/',
     },
   },
   plugins: [
     'gatsby-plugin-flow',
     'gatsby-plugin-emotion',
-    'gatsby-transformer-remark',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -41,6 +41,17 @@ module.exports = {
       options: {
         pathToConfigModule: `src/utils/typography`,
       },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: [
+        {
+          resolve: `gatsby-remark-prismjs`,
+          options: {
+            inlineCodeMarker: '>',
+          },
+        },
+      ],
     },
   ],
 }

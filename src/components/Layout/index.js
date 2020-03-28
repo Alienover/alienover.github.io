@@ -11,10 +11,11 @@ import type { Node } from 'react'
 
 const Layout: any = styled('div')`
   @media screen and (min-width: 800px) {
-    max-width: 750px;
+    max-width: ${rhythm(28)};
   }
   width: 100vw;
   margin: auto;
+  padding: ${rhythm(1)};
 
   && footer {
     text-align: center;

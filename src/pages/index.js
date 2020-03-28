@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import { rhythm } from '../utils/typography'
@@ -9,6 +10,11 @@ import PostList from '../components/List'
 
 type Props = {
   data: {
+    site: {
+      siteMetadata: {
+        shortTitle: string,
+      },
+    },
     allMarkdownRemark: {
       totalCount: number,
       edges: $ReadOnlyArray<{
@@ -29,9 +35,13 @@ type Props = {
 }
 export default ({ data }: Props) => {
   const { edges } = data.allMarkdownRemark
+  const { shortTitle } = data.site.siteMetadata
 
   return (
     <Layout>
+      <Helmet>
+        <title>{shortTitle}</title>
+      </Helmet>
       <h4
         css={css`
           margin: ${rhythm(1)} 0;
@@ -46,6 +56,11 @@ export default ({ data }: Props) => {
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        shortTitle
+      }
+    }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
